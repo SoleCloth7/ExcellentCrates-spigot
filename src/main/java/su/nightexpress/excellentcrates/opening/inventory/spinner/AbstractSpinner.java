@@ -96,15 +96,16 @@ public abstract class AbstractSpinner implements Spinner {
         this.tickCount = Math.max(0L, this.tickCount + 1L);
     }
 
-@Override
-public void tickAll() {
-    if (!this.running) return;
-    // Instant openings are closed immediately, so there is no reason
-    // to render every invis animation frame.
-    this.spinCount = Math.max(1L, this.requiredSpins);
-    this.steps.clear();
-    this.currentStep = null;
-}
+    @Override
+    public void tickAll() {
+        if (!this.running) return;
+
+        // Instant openings are closed immediately, so there is no reason
+        // to render every invis animation frame.
+        this.spinCount = Math.max(1L, this.requiredSpins);
+        this.steps.clear();
+        this.currentStep = null;
+    }
     
     @Override
     public boolean isSpinTime() {
